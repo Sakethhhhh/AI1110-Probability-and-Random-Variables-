@@ -1,14 +1,27 @@
-import random
-t=1000000 #enter sample size
-t1=t
-sum=0
-while(t>0):
-    roll1=random.randint(1,6)
-    roll2=random.randint(1,6)
-    if(roll1==6):
-        sum+=1
-    if(roll2==6):
-        sum+=1
-    t-=1
-sum=sum/t1;
-print(sum)
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import bernoulli
+from scipy.stats import norm
+from scipy.stats import binom
+#import seaborn as sns
+
+#Number of rolls
+n =  2
+
+#Probability of a six
+p = 1/6
+
+#k is the possible values of number of sixes per roll
+k_values = list(range(n+1))
+
+#y gives the probability values for each of the values of k
+y = binom.pmf(k_values,n,p)
+
+#Simulating the probability using the binomial random variable
+
+simlen = 100000
+
+data_binom = binom.rvs(n,p,size=simlen) #Simulating the event of a die rolled 2 times and noting the number of sixes
+
+fav_count = np.count_nonzero(data_binom == 2)*2+np.count_nonzero(data_binom==1)  #Finding the number of sixes in all the rolls
+print(fav_count/simlen)  #printing the average number of sixes
