@@ -318,21 +318,21 @@ Clearly X follows a binomial distribution\\
 \end{align}
 Proof of (2)
 \begin{align}
-M_{X_i}(z) &= E(z^{X_i}) = \sum_{k=-\infty}^{\infty} P_{X_i}(k)z^{-k}
+M_{X_i}(z) &= E(z^{-X_i}) = \sum_{k=-\infty}^{\infty} P_{X_i}(k)z^{-k}
 \end{align}
 \begin{align}
-E(z^{X_1+X_2+...X_n}) &= E(z^{X_1})E(z^{X_2})...E(z^{X_n}) 
+E(z^{-X_1-X_2+...-X_n}) &= E(z^{-X_1})E(z^{-X_2})...E(z^{-X_n}) 
 \end{align}
 \begin{align}
 M_{X}(z)=M_{X_1}(z)M_{X_2}(z)...M_{X_n}(z)
 \end{align}
 ($\because X_1,X_2,...,X_n$are independent and identically distributed)
 \begin{align}
-\frac{dM_{X_i}(z)}{dz} &= E(X_i z^{X_i-1})
+\frac{dM_{X_i}(z^{-1})}{dz} &= E(X_i z^{X_i-1})
 \end{align}
 Put z=1 to get
 \begin{align}
-E(X_i) &= \frac{dM_{X_i}(z)}{dz}|_{z=1}
+E(X_i) &= \frac{dM_{X_i}(z^{-1})}{dz}|_{z=1}
 \end{align}
 For Bernoulli distribution,
 \begin{align}
@@ -343,12 +343,12 @@ For binomial,
 X=X_1+X_2+...X_n
 \end{align}
 \begin{align}
-M_{X}=(1-p +pz^{-1})^{-n}
+M_{X}=(1-p +pz^{-1})^{n}
 \end{align}
 \begin{align}
-E(X) &= \frac{dM_{X}(z)}{dz}|_{z=1}\\ 
-	&=\frac{d(1-p +pz^{-1})^{-n}}{dz}|_{z=1}\\
-	&=(-n)(1-p + p(1))^{-(n+1)}\frac{-p}{1^{2}}\\
+E(X) &= \frac{dM_{X}(z^{-1})}{dz}|_{z=1}\\ 
+	&=\frac{d(1-p +pz)^{n}}{dz}|_{z=1}\\
+	&=(np)(1-p + p(1))^{(n-1)}\\
 	&=np
 \end{align}
 %\section{Chemistry}
